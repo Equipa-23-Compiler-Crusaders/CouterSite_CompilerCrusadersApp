@@ -23,7 +23,7 @@ namespace compilercrusadersteste
             view.BotãoPressionado += CliqueEmPesquisar;
             model.Pesquisa_Concluida += GerarResultados;
             model.Ficheiro_Gerado += MensagemFinal;
-
+            
         }
         public void IniciarPrograma()
         {
@@ -43,13 +43,14 @@ namespace compilercrusadersteste
             Console.WriteLine("Model P : pesquisa concluido");
             Console.WriteLine("Controller S: model bota ai o ficheiro ");
             model.GerarFicheiroResultados();
+
         }
 
         public void MensagemFinal(object origem, EventArgs e) //subscriver
         {
             Console.WriteLine("Model P: acabei o ficheiro");
             Console.WriteLine("Contoller S: View informa o utilizador");
-            view.MensagemParaUtilizador();
+            view.MensagemParaUtilizador("Tá feito mano");
         }
 
 

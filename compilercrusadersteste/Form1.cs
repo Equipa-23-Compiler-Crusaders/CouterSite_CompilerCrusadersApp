@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,10 @@ namespace compilercrusadersteste
             InitializeComponent();
         }
 
+        public void change_label(string mensagem)
+        {
+            label1.Text = mensagem;
+        }
         public View View { get => view; set => view = value; }
 
         private void label1_Click(object sender, EventArgs e)
@@ -140,7 +145,30 @@ namespace compilercrusadersteste
 
         private void Pesquisar_Click(object sender, EventArgs e)
         {
-             view.CliqueEmPesquisar(sender, e);
+            if (TipoPesquisa.Text == ""  | LugarPesquisa.Text == ""){
+                if (TipoPesquisa.Text == "")
+                {
+                    label1.Text = "mano seleciona alguma um negocio ex: putaria";
+                    //view.MensagemParaUtilizador("mano seleciona alguma um negocio ex: putaria");
+                }
+                else
+                {
+                    label1.Text = "mano seleciona alguma um local ex: perto de casa";
+                    //view.MensagemParaUtilizador("mano seleciona alguma um local ex: perto de casa");
+                }
+                
+            }
+            else
+            {
+                label1.Text = "A pesquisar";
+                view.CliqueEmPesquisar(sender, e);
+            }
+            
+        }
+
+        private void label1_Click_3(object sender, EventArgs e)
+        {
+
         }
     }
 }

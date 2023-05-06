@@ -16,7 +16,9 @@ namespace compilercrusadersteste
 
         public delegate void Clique(object sender, EventArgs e);
         public event Clique BotãoPressionado;
+       
 
+        
 
         internal View(Model m)
         {
@@ -30,7 +32,10 @@ namespace compilercrusadersteste
             janela = new Form1();
             janela.View = this;
             // A API WinForms desenha as janelas e botões automaticamente
+            
             janela.ShowDialog();
+            
+
 
         }
 
@@ -41,9 +46,14 @@ namespace compilercrusadersteste
             BotãoPressionado(origem, e);
         }
 
-        public void MensagemParaUtilizador()  // subscriver do controller para mostar mensagem  ao utilizador
+        public void MensagemParaUtilizador(string mensagem)  // subscriver do controller para mostar mensagem  ao utilizador
         {
-            Console.WriteLine("View: ficehiro gerado" );
+            //Console.WriteLine("View:" );
+            janela.change_label(mensagem);
+            
+            
+            
+           
         }
 
     }
