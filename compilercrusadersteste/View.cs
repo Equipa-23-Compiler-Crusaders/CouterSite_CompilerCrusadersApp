@@ -37,13 +37,13 @@ namespace compilercrusadersteste
         public void CliqueEmPesquisar(object origem, EventArgs e) // subscriver para clique no controller
         {
 
-            Console.WriteLine("click pesquisar");
+            Console.WriteLine("View S: click pesquisar");
             BotãoPressionado(origem, e);
         }
 
         public void MensagemParaUtilizador()  // subscriver do controller para mostar mensagem  ao utilizador
         {
-
+            Console.WriteLine("View: ficehiro gerado" );
         }
 
     }

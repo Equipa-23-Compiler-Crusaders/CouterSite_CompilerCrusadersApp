@@ -9,6 +9,10 @@ namespace compilercrusadersteste
 {
     class Model
     {
+
+        public delegate void Pesquisa_event(object sender, EventArgs e);
+        public event Pesquisa_event Pesquisa_Concluida;
+        public event Pesquisa_event Ficheiro_Gerado;
         private View view;
         public Model(View v)
         {
@@ -18,16 +22,26 @@ namespace compilercrusadersteste
         public void Pesquisa(string negocio,string local, string motor_busca)   // pesquisa com o selenium
         {
             Console.WriteLine(negocio+" em "+ local + " no "+motor_busca);
-        }
+
+            Console.WriteLine("Model: a pesquisar");
+
+            Pesquisa_Concluida(this, EventArgs.Empty);
+   
+
+
+    }
 
         public void GerarFicheiroResultados()  // gerar ficheiro final
         {
+            Console.WriteLine("Model: olha eu a fazer um ficheiro com cenas ");
+            Ficheiro_Gerado(this, EventArgs.Empty);
 
+            
         }
 
 
 
-        // evento pesquisa concluida para o controller
+       
         // evento ficheiro gerado
     }
 }

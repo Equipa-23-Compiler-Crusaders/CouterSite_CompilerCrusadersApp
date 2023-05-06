@@ -21,30 +21,35 @@ namespace compilercrusadersteste
             model = new Model(view);
 
             view.BotãoPressionado += CliqueEmPesquisar;
+            model.Pesquisa_Concluida += GerarResultados;
+            model.Ficheiro_Gerado += MensagemFinal;
+
         }
         public void IniciarPrograma()
         {
             view.AtivarInterface();
         }
 
-        public void CliqueEmPesquisar(object origem, EventArgs e)   //evento
+        public void CliqueEmPesquisar(object origem, EventArgs e)   //subscriver
         {
 
-            Console.WriteLine("model bota ai a pesquisa");
+            Console.WriteLine("Controller S: model bota ai a pesquisa");
             model.Pesquisa("putaria", "braga", "bing");
 
         }
-        //public void VerificarInput()    // já não precisa
-        //{}
-
-        public void IniciarPesquisa()   // depois de confirmar input iniciar a pesquisa no model.
+     
+        public void GerarResultados(object origem, EventArgs e)  // subscriver
         {
-
+            Console.WriteLine("Model P : pesquisa concluido");
+            Console.WriteLine("Controller S: model bota ai o ficheiro ");
+            model.GerarFicheiroResultados();
         }
 
-        public void GerarResultados()  // evento para a model gerar resultados
+        public void MensagemFinal(object origem, EventArgs e) //subscriver
         {
-
+            Console.WriteLine("Model P: acabei o ficheiro");
+            Console.WriteLine("Contoller S: View informa o utilizador");
+            view.MensagemParaUtilizador();
         }
 
 
