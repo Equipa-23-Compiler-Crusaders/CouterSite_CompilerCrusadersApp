@@ -19,7 +19,7 @@ namespace compilercrusadersteste
             InitializeComponent();
         }
 
-        public View View { get; set; }
+        public View View { get => view; set => view = value; }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -135,12 +135,12 @@ namespace compilercrusadersteste
 
         private void bing_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Pesquisar_Click(object sender, EventArgs e)
         {
-            // view.CliqueEmPesquisar(sender, e);
+             view.CliqueEmPesquisar(sender, e);
         }
     }
 }
