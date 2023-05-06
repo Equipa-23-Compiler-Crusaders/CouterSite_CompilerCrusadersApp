@@ -15,9 +15,9 @@ namespace compilercrusadersteste
             view = v;
         }
 
-        public void Pesquisa()   // pesquisa com o selenium 
+        public void Pesquisa(string negocio,string local, string motor_busca)   // pesquisa com o selenium
         {
-
+            Console.WriteLine(negocio+" em "+ local + " no "+motor_busca);
         }
 
         public void GerarFicheiroResultados()  // gerar ficheiro final

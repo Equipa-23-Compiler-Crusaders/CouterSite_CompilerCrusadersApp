@@ -13,6 +13,11 @@ namespace compilercrusadersteste
         private Model model;
         private Form1 janela;
 
+
+        public delegate void Clique(object sender, EventArgs e);
+        public event Clique BotãoPressionado;
+
+
         internal View(Model m)
         {
             model = m;
@@ -33,6 +38,7 @@ namespace compilercrusadersteste
         {
 
             Console.WriteLine("click pesquisar");
+            BotãoPressionado(origem, e);
         }
 
         public void MensagemParaUtilizador()  // subscriver do controller para mostar mensagem  ao utilizador
