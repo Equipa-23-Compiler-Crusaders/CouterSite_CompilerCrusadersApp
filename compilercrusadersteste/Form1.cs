@@ -13,31 +13,27 @@ namespace compilercrusadersteste
 {
     public partial class Form1 : Form
     {
-        internal View View { get; set; }
-
+        View view;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        public View View { get; set; }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -47,7 +43,7 @@ namespace compilercrusadersteste
 
         private void MenuVertical_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -76,7 +72,7 @@ namespace compilercrusadersteste
 
         private void panelContentor_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void btnRestaurar_Click_1(object sender, EventArgs e)
@@ -93,48 +89,58 @@ namespace compilercrusadersteste
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void google_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panelContentor_Paint_1(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
+            
 
         }
 
         private void label1_Click_2(object sender, EventArgs e)
         {
-
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            
+        }
 
+        private void bing_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pesquisar_Click(object sender, EventArgs e)
+        {
+            // view.CliqueEmPesquisar(sender, e);
         }
     }
 }

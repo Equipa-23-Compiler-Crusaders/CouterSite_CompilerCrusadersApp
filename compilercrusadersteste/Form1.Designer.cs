@@ -66,7 +66,7 @@
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(975, 31);
             this.BarraTitulo.TabIndex = 0;
@@ -76,7 +76,7 @@
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
             this.btnRestaurar.Location = new System.Drawing.Point(923, 6);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(19, 20);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -90,7 +90,7 @@
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
             this.btnMinimizar.Location = new System.Drawing.Point(893, 2);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(19, 20);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,7 +103,7 @@
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
             this.btnMaximizar.Location = new System.Drawing.Point(923, 2);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(19, 20);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -116,7 +116,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(954, 2);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(19, 20);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,7 +133,7 @@
             this.MenuVertical.Controls.Add(this.pictureBox1);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 31);
-            this.MenuVertical.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MenuVertical.Margin = new System.Windows.Forms.Padding(2);
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(202, 497);
             this.MenuVertical.TabIndex = 1;
@@ -143,7 +143,7 @@
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(38, 344);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 37);
             this.button1.TabIndex = 3;
@@ -155,18 +155,19 @@
             // 
             this.bing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bing.Location = new System.Drawing.Point(38, 266);
-            this.bing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bing.Margin = new System.Windows.Forms.Padding(2);
             this.bing.Name = "bing";
             this.bing.Size = new System.Drawing.Size(138, 37);
             this.bing.TabIndex = 2;
             this.bing.Text = "Pesquisar no Bing";
             this.bing.UseVisualStyleBackColor = true;
+            this.bing.Click += new System.EventHandler(this.bing_Click);
             // 
             // google
             // 
             this.google.Cursor = System.Windows.Forms.Cursors.Hand;
             this.google.Location = new System.Drawing.Point(38, 192);
-            this.google.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.google.Margin = new System.Windows.Forms.Padding(2);
             this.google.Name = "google";
             this.google.Size = new System.Drawing.Size(138, 37);
             this.google.TabIndex = 1;
@@ -178,7 +179,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,7 +200,7 @@
             this.panelContentor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContentor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelContentor.Location = new System.Drawing.Point(202, 31);
-            this.panelContentor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContentor.Margin = new System.Windows.Forms.Padding(2);
             this.panelContentor.Name = "panelContentor";
             this.panelContentor.Size = new System.Drawing.Size(773, 497);
             this.panelContentor.TabIndex = 2;
@@ -209,7 +210,7 @@
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.DarkRed;
             this.progressBar1.Location = new System.Drawing.Point(88, 436);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(572, 19);
             this.progressBar1.TabIndex = 7;
@@ -219,12 +220,13 @@
             this.Pesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Pesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pesquisar.Location = new System.Drawing.Point(490, 375);
-            this.Pesquisar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Pesquisar.Margin = new System.Windows.Forms.Padding(2);
             this.Pesquisar.Name = "Pesquisar";
             this.Pesquisar.Size = new System.Drawing.Size(170, 46);
             this.Pesquisar.TabIndex = 6;
             this.Pesquisar.Text = "Pesquisar";
             this.Pesquisar.UseVisualStyleBackColor = true;
+            this.Pesquisar.Click += new System.EventHandler(this.Pesquisar_Click);
             // 
             // LugarPesquisa
             // 
@@ -239,7 +241,7 @@
             "Madeira",
             "Açores"});
             this.LugarPesquisa.Location = new System.Drawing.Point(88, 273);
-            this.LugarPesquisa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LugarPesquisa.Margin = new System.Windows.Forms.Padding(2);
             this.LugarPesquisa.Name = "LugarPesquisa";
             this.LugarPesquisa.Size = new System.Drawing.Size(100, 68);
             this.LugarPesquisa.TabIndex = 5;
@@ -256,7 +258,7 @@
             "Universidades",
             "Mecanicos"});
             this.TipoPesquisa.Location = new System.Drawing.Point(88, 106);
-            this.TipoPesquisa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TipoPesquisa.Margin = new System.Windows.Forms.Padding(2);
             this.TipoPesquisa.Name = "TipoPesquisa";
             this.TipoPesquisa.Size = new System.Drawing.Size(146, 68);
             this.TipoPesquisa.TabIndex = 4;
@@ -309,7 +311,7 @@
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

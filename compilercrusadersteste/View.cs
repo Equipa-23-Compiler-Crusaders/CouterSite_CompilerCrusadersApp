@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace compilercrusadersteste
 {
-    class View
+    public class View
     {
         private Model model;
         private Form1 janela;
@@ -32,7 +32,7 @@ namespace compilercrusadersteste
         public void CliqueEmPesquisar(object origem, EventArgs e) // subscriver para clique no controller
         {
 
-
+            Console.WriteLine("click pesquisar");
         }
 
         public void MensagemParaUtilizador()  // subscriver do controller para mostar mensagem  ao utilizador
