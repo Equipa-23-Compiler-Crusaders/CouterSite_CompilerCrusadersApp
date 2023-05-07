@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net.NetworkInformation;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using System.Threading;
+using OpenQA.Selenium.Edge;
 
 namespace compilercrusadersteste
 {
@@ -30,7 +35,22 @@ namespace compilercrusadersteste
             Console.WriteLine(entradas[0]);  //  negocio
             Console.WriteLine(entradas[1]);  // localização
 
-       
+            //Implementar no prox sprint
+            IWebDriver driver = new EdgeDriver(); //driver para edge, tb pode ser chrome com ChromeDriver
+
+            driver.Navigate().GoToUrl("https://www.google.com");
+
+            //IWebElement searchBox = driver.FindElement(By.Name("q"));
+            //searchBox.SendKeys("{entradas[0]} em {entradas[1]}");
+            //searchBox.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+            //IWebElement businessType = driver.FindElement(By.ClassName("SPZz6b"));
+            //Console.WriteLine("Nome do restaurante: {0}", businessType.Text);
+
+            //// Vai buscar o endereço do restaurante
+            //IWebElement businessCity = driver.FindElement(By.ClassName("LrzXr");
+
+
             // colocar Try "ao abrir a pagina"
             /// Coisas a acontecer
             /// 

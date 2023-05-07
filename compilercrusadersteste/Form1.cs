@@ -159,6 +159,7 @@ namespace compilercrusadersteste
                 {
                     label1.Text = "Selecione um local!";
                     //view.MensagemParaUtilizador("mano seleciona alguma um local ex: perto de casa");
+                    
                 }
                 
             }

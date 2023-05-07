@@ -44,6 +44,7 @@ namespace compilercrusadersteste
 
             Console.WriteLine("View S: click pesquisar");
             BotãoPressionado(origem, e);
+            model.Pesquisa(janela.get_text());
         }
 
         public string Texto()
