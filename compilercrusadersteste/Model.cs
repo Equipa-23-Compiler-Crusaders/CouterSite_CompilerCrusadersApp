@@ -19,8 +19,13 @@ namespace compilercrusadersteste
             view = v;
         }
 
-        public void Pesquisa(string negocio,string local, string motor_busca)  
+        public void Pesquisa(string texto)  
         {
+            Console.WriteLine(texto);
+            string[] words = texto.Split(',');
+            Console.WriteLine(words[0]);
+            Console.WriteLine(words[1]);
+
             /// Coisas a acontecer
             /// 
             /// conclui e publica informação

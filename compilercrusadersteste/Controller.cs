@@ -32,9 +32,10 @@ namespace compilercrusadersteste
 
         public void CliqueEmPesquisar(object origem, EventArgs e)   //subscriver
         {
-
+            string texto;
             Console.WriteLine("Controller S: model bota ai a pesquisa");
-            model.Pesquisa("putaria", "braga", "bing");
+            texto = view.Texto();
+            model.Pesquisa(texto);  
 
         }
      

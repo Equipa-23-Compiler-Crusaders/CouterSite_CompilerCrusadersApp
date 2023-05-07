@@ -46,13 +46,17 @@ namespace compilercrusadersteste
             BotãoPressionado(origem, e);
         }
 
+        public string Texto()
+        {
+
+            return janela.get_text();
+        }
+
         public void MensagemParaUtilizador(string mensagem)  // subscriver do controller para mostar mensagem  ao utilizador
         {
             //Console.WriteLine("View:" );
             janela.change_label(mensagem);
-            
-            
-            
+             
            
         }
 

@@ -20,6 +20,10 @@ namespace compilercrusadersteste
             InitializeComponent();
         }
 
+        public string get_text()
+        {
+            return TipoPesquisa.Text + "," + LugarPesquisa.Text;
+        }
         public void change_label(string mensagem)
         {
             label1.Text = mensagem;
@@ -162,6 +166,7 @@ namespace compilercrusadersteste
             {
                 label1.Text = "A pesquisar";
                 view.CliqueEmPesquisar(sender, e);
+                
             }
             
         }
