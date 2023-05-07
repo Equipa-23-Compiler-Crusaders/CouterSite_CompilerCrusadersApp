@@ -9,7 +9,7 @@ Trabalho de LDS
 
 Bem-vindo ao App CounterSite!
 
-O CounterSite é um aplicativo desenvolvido em linguagem C# que realiza pesquisas automáticas no Google, baseadas no tipo de negócio e localização, e exporta os dados para um arquivo CSV. Com o CounterSite, você pode coletar informações de contato, como e-mails, números de telefone e muito mais, de forma eficiente e prática.
+O CounterSite é um aplicativo desenvolvido em linguagem C# que realiza pesquisas automáticas no Google ou no Bing, baseadas no tipo de negócio e localização, e exporta os dados para um arquivo CSV. Com o CounterSite, você pode coletar informações de contato, como e-mails, números de telefone e muito mais, de forma eficiente e prática.
 
 O aplicativo é muito fácil de usar: basta inserir os termos de pesquisa desejados e o CounterSite cuidará do resto. Além disso, o programa permite criar um arquivo para armazenar as informações coletadas, que podem ser utilizadas como uma base de dados para futuros contatos.
 
