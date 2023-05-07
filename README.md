@@ -4,6 +4,7 @@
 
 
 <p align="center">
+
 Trabalho de LDS
 
 Bem-vindo ao App CounterSite!
@@ -28,7 +29,7 @@ Experimente o CounterSite agora mesmo e descubra como ele pode impulsionar o cre
 <pre>./coutersite </pre>
 
 
-O projeto foi feito em C#.
+O projeto foi desenvolvido em C#.
 
 
 The project was done with C#.
