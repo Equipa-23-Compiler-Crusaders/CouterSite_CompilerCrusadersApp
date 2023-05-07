@@ -26,6 +26,7 @@ Experimente o CounterSite agora mesmo e descubra como ele pode impulsionar o cre
 <pre>utilizar o visual studio  </pre>
 
 ## Sintaxe para executar:
+<pre>executar com run diretamente no visual studio ou no terminal:</pre>
 <pre>./dotnet run </pre>
 
 
