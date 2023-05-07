@@ -19,13 +19,16 @@ namespace compilercrusadersteste
             view = v;
         }
 
-        public void Pesquisa(string texto)  
+        public void Pesquisa(string texto)  // recebe string e depois a string é dividida
         {
-            Console.WriteLine(texto);
-            string[] words = texto.Split(',');
-            Console.WriteLine(words[0]);
-            Console.WriteLine(words[1]);
+            
+            string[] entradas = texto.Split(',');
 
+            Console.WriteLine(entradas[0]);  //  negocio
+            Console.WriteLine(entradas[1]);  // localização
+
+       
+            // colocar Try "ao abrir a pagina"
             /// Coisas a acontecer
             /// 
             /// conclui e publica informação

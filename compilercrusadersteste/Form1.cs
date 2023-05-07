@@ -164,6 +164,7 @@ namespace compilercrusadersteste
             }
             else
             {
+                
                 label1.Text = "A pesquisar";
                 view.CliqueEmPesquisar(sender, e);
                 

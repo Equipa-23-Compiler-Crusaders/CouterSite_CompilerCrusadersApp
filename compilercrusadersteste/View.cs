@@ -39,7 +39,7 @@ namespace compilercrusadersteste
 
         }
 
-        public void CliqueEmPesquisar(object origem, EventArgs e) // subscriver para clique no controller
+        public void CliqueEmPesquisar(object origem, EventArgs e) // subscriver 
         {
 
             Console.WriteLine("View S: click pesquisar");

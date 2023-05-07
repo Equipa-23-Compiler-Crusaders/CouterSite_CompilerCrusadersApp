@@ -13,7 +13,7 @@ namespace compilercrusadersteste
         Model model;
         View view;
 
-
+        
 
         public Controller()
         {
@@ -33,7 +33,7 @@ namespace compilercrusadersteste
         public void CliqueEmPesquisar(object origem, EventArgs e)   //subscriver
         {
             string texto;
-            Console.WriteLine("Controller S: model bota ai a pesquisa");
+            Console.WriteLine("Controller S: model começa a pesquisa");
             texto = view.Texto();
             model.Pesquisa(texto);  
 
@@ -41,8 +41,8 @@ namespace compilercrusadersteste
      
         public void GerarResultados(object origem, EventArgs e)  // subscriver
         {
-            Console.WriteLine("Model P : pesquisa concluido");
-            Console.WriteLine("Controller S: model bota ai o ficheiro ");
+            Console.WriteLine("Model P : pesquisa concluida");
+            Console.WriteLine("Controller S: model cria o ficheiro ");
             model.GerarFicheiroResultados();
 
         }
@@ -51,7 +51,7 @@ namespace compilercrusadersteste
         {
             Console.WriteLine("Model P: acabei o ficheiro");
             Console.WriteLine("Contoller S: View informa o utilizador");
-            view.MensagemParaUtilizador("Pesquisa conluida, consulte o ficheiro.");
+            view.MensagemParaUtilizador("Pesquisa concluida, consulte o ficheiro.");
         }
 
 
