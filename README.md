@@ -23,10 +23,10 @@ Experimente o CounterSite agora mesmo e descubra como ele pode impulsionar o cre
 <img src="print.png" alt="page-home">
 ## Sintaxe para compilar:
 
-<pre>sintaxis  </pre>
+<pre>utilizar o visual studio  </pre>
 
 ## Sintaxe para executar:
-<pre>./coutersite </pre>
+<pre>./dotnet run </pre>
 
 
 O projeto foi desenvolvido em C#.
