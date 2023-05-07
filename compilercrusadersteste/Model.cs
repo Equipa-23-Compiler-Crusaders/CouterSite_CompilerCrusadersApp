@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Net.NetworkInformation;
 
 namespace compilercrusadersteste
 {
@@ -14,6 +16,7 @@ namespace compilercrusadersteste
         public event Model_event Pesquisa_Concluida;
         public event Model_event Ficheiro_Gerado;
         private View view;
+        private string resultados;
         public Model(View v)
         {
             view = v;
@@ -41,7 +44,19 @@ namespace compilercrusadersteste
 
         public void GerarFicheiroResultados()  // gerar ficheiro final
         {
-            Console.WriteLine("Model: olha eu a fazer um ficheiro com cenas ");
+            
+            Console.WriteLine("Model: A criar um ficheiro ");
+
+            resultados = "teste,1,2,3";  // remover após implemtação do selenium
+
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // guarda na pasta "meus documentos"
+            
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "output.csv"), true))
+            {
+                outputFile.WriteLine(resultados);
+            }
+
+
             Ficheiro_Gerado(this, EventArgs.Empty);
 
             
