@@ -148,12 +148,12 @@ namespace compilercrusadersteste
             if (TipoPesquisa.Text == ""  | LugarPesquisa.Text == ""){
                 if (TipoPesquisa.Text == "")
                 {
-                    label1.Text = "mano seleciona alguma um negocio ex: putaria";
+                    label1.Text = "Selecione um negócio!";
                     //view.MensagemParaUtilizador("mano seleciona alguma um negocio ex: putaria");
                 }
                 else
                 {
-                    label1.Text = "mano seleciona alguma um local ex: perto de casa";
+                    label1.Text = "Selecione um local!";
                     //view.MensagemParaUtilizador("mano seleciona alguma um local ex: perto de casa");
                 }
                 

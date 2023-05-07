@@ -50,7 +50,7 @@ namespace compilercrusadersteste
         {
             Console.WriteLine("Model P: acabei o ficheiro");
             Console.WriteLine("Contoller S: View informa o utilizador");
-            view.MensagemParaUtilizador("Tá feito mano");
+            view.MensagemParaUtilizador("Pesquisa conluida, consulte o ficheiro.");
         }
 
 

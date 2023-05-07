@@ -10,20 +10,20 @@ namespace compilercrusadersteste
     class Model
     {
 
-        public delegate void Pesquisa_event(object sender, EventArgs e);
-        public event Pesquisa_event Pesquisa_Concluida;
-        public event Pesquisa_event Ficheiro_Gerado;
+        public delegate void Model_event(object sender, EventArgs e);
+        public event Model_event Pesquisa_Concluida;
+        public event Model_event Ficheiro_Gerado;
         private View view;
         public Model(View v)
         {
             view = v;
         }
 
-        public void Pesquisa(string negocio,string local, string motor_busca)   // pesquisa com o selenium
+        public void Pesquisa(string negocio,string local, string motor_busca)  
         {
-            Console.WriteLine(negocio+" em "+ local + " no "+motor_busca);
-
-            Console.WriteLine("Model: a pesquisar");
+            /// Coisas a acontecer
+            /// 
+            /// conclui e publica informação
 
             Pesquisa_Concluida(this, EventArgs.Empty);
    
