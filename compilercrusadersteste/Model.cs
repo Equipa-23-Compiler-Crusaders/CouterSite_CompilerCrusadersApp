@@ -46,13 +46,14 @@ namespace compilercrusadersteste
         {
             
             Console.WriteLine("Model: A criar um ficheiro ");
-
+            string header = "Negocio,Morada,Telefone,Email";
             resultados = "teste,1,2,3";  // remover após implemtação do selenium
 
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // guarda na pasta "meus documentos"
             
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "output.csv"), true))
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "output_.csv"), true))
             {
+                outputFile.WriteLine(header);
                 outputFile.WriteLine(resultados);
             }
 
