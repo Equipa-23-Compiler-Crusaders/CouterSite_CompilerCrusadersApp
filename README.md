@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img width="600" src="c.png" />
+    <img width="600" src="logo.png" />
 </h1>
 
 
@@ -14,7 +14,7 @@ O programa recebe valores, e permite criar um ficheiro que guarda informação q
 
 📌 Programa Coutersite
 ------------------
-<img src="coutersite.png" alt="page-home">
+<img src="print.png" alt="page-home">
 ## Sintaxe para compilar:
 
 <pre>sintaxis  </pre>
