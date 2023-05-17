@@ -43,6 +43,7 @@ The project was done with C#.
 
 - C#
 - Visual Studio
+- Selenium
 
 💬 Fale com Compiler Crusaders
 ------------------
