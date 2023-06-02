@@ -10,7 +10,11 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Interactions;
+using System.Collections.ObjectModel;
 
 namespace compilercrusadersteste
 {
@@ -27,40 +31,122 @@ namespace compilercrusadersteste
             view = v;
         }
 
+        //para nao usar ThreadSleep por ser má pratica implementei esta funcao
+        public static Func<IWebDriver, IWebElement> ElementIsClickable(IWebElement element)
+        {
+            return driver =>
+            {
+                try
+                {
+                    return (element.Displayed && element.Enabled) ? element : null;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            };
+        }
+
+        public static Func<IWebDriver, IWebElement> ElementExists(By locator)
+        {
+            return driver =>
+            {
+                try
+                {
+                    return driver.FindElement(locator);
+                }
+                catch (NoSuchElementException)
+                {
+                    return null;
+                }
+            };
+        }
+
+
+
         public void Pesquisa(string texto)  // recebe string e depois a string é dividida
         {
-            
+
             string[] entradas = texto.Split(',');
 
-            Console.WriteLine(entradas[0]);  //  negocio
-            Console.WriteLine(entradas[1]);  // localização
+            //inicializa o web driver para edge. Pode ser mudado para chrome alterando estas duas linhas (EdgeConfig para ChromeConfig, EdgeDriver para ChromeDriver)
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            IWebDriver driver = new ChromeDriver();
 
-            //Implementar no prox sprint
-            IWebDriver driver = new EdgeDriver(); //driver para edge, tb pode ser chrome com ChromeDriver
-
+            //abre google.com
             driver.Navigate().GoToUrl("https://www.google.com");
 
-            //IWebElement searchBox = driver.FindElement(By.Name("q"));
-            //searchBox.SendKeys("{entradas[0]} em {entradas[1]}");
-            //searchBox.SendKeys(OpenQA.Selenium.Keys.Enter);
+            //maximiza pagina
+            driver.Manage().Window.Maximize();
 
-            //IWebElement businessType = driver.FindElement(By.ClassName("SPZz6b"));
-            //Console.WriteLine("Nome do restaurante: {0}", businessType.Text);
+            //ao abrir o Edge vai abrir uma pagina de cookies. Este excerto serve para aceitar as cookies automaticamente
+            IWebElement cookiesButton = driver.FindElement(By.Id("L2AGLb"));
+            cookiesButton.Click();
 
-            //// Vai buscar o endereço do restaurante
-            //IWebElement businessCity = driver.FindElement(By.ClassName("LrzXr");
+            //espera que a pagina abra
+            Thread.Sleep(500);
+
+            //Procura a searchbox do google
+
+            IWebElement searchBox = driver.FindElement(By.Name("q"));
+
+            //Insere o input
+            searchBox.SendKeys(entradas[0] + " em " + entradas[1]);
+
+            //Carrega enter
+            searchBox.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+            //espera que a pagina abra
+            Thread.Sleep(2000);
 
 
-            // colocar Try "ao abrir a pagina"
-            /// Coisas a acontecer
-            /// 
-            /// conclui e publica informação
+            //TESTE PARA APENAS UM ELEMENTO. DEPOIS CRIAR UMA ILIST WEBELEMENTS PARA GUARDAR TUDO!! ->
+            //Console.WriteLine("antes do find");
+
+            //declarar js executor
+            //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            //// dar scrool down para o selenium ver os resultados
+            //js.ExecuteScript("window.scrollBy(0,500)");
+
+            //Carrega no botao que mostra todos os negocios
+            IWebElement showAllButton = driver.FindElement(By.ClassName("jRKCUd"));
+            showAllButton.Click();
+            List<IWebElement> elements = driver.FindElements(By.CssSelector(".OSrXXb:not(.WaZi0e)")).ToList();
+
+
+            //ignora os comentarios
+            var elements2 = elements.Where(element => !element.Text.StartsWith("\""));
+
+            List<IWebElement> businessNames = elements.Where(element => !string.IsNullOrEmpty(element.Text)).ToList();
+
+
+            //ignora patrocinios
+
+            List<IWebElement> businessAdress = new List<IWebElement>();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            //ir buscar as moradas dos respetivos negocios
+            foreach (IWebElement name in businessNames)
+            {
+
+                Console.WriteLine(name.Text);
+                //((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", name);
+                //wait.Until(ElementIsClickable(name));
+                ////Thread.Sleep(2000);
+                //name.Click();
+                ////Thread.Sleep(2000);
+                //IWebElement adress = wait.Until(ElementExists(By.CssSelector("LrzXr")));
+                //////businessAdress.Add(adress);
+                //Console.WriteLine("Nome do/a {0}: {1}\nEndereço: {2} \n", entradas[0], name.Text, adress.Text);
+
+            }
+
 
             Pesquisa_Concluida(this, EventArgs.Empty);
-   
 
 
-    }
+
+        }
 
         public void GerarFicheiroResultados()  // gerar ficheiro final
         {
