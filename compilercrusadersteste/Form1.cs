@@ -148,30 +148,43 @@ namespace compilercrusadersteste
         }
 
         private void Pesquisar_Click(object sender, EventArgs e)
+{
+    if (TipoPesquisa.Text == ""  | LugarPesquisa.Text == "")
+    {
+        if (TipoPesquisa.Text == "")
         {
-            if (TipoPesquisa.Text == ""  | LugarPesquisa.Text == ""){
-                if (TipoPesquisa.Text == "")
-                {
-                    label1.Text = "Selecione um negócio!";
-                    //view.MensagemParaUtilizador("mano seleciona alguma um negocio ex: putaria");
+            label1.Text = "Selecione um negócio!";
+            //view.MensagemParaUtilizador("mano seleciona alguma um negocio ex: putaria");
+
                 }
                 else
-                {
-                    label1.Text = "Selecione um local!";
-                    //view.MensagemParaUtilizador("mano seleciona alguma um local ex: perto de casa");
-                    
+        {
+            label1.Text = "Selecione um local!";
+            //view.MensagemParaUtilizador("mano seleciona alguma um local ex: perto de casa");
                 }
-                
             }
-            else
-            {
-                
-                label1.Text = "A pesquisar";
-                view.CliqueEmPesquisar(sender, e);
-                
-            }
-            
+    else
+    {
+        // Inicializa a barra de progresso.
+        progressBar1.Minimum = 0;
+        progressBar1.Maximum = 100;
+        progressBar1.Value = 0;
+
+        // Simula a operação de pesquisa em andamento.
+        for (int i = 0; i <= 100; i++)
+        {
+            // Simula o trabalho da pesquisa.
+            System.Threading.Thread.Sleep(50);
+
+            // Atualiza a barra de progresso.
+            progressBar1.Value = i;
         }
+
+        label1.Text = "A pesquisar";
+        view.CliqueEmPesquisar(sender, e);
+    }
+}
+
 
         private void label1_Click_3(object sender, EventArgs e)
         {
