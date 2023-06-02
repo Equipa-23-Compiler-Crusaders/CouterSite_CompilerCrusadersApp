@@ -15,7 +15,7 @@ O aplicativo é muito fácil de usar: basta inserir os termos de pesquisa deseja
 
 O CounterSite é ideal para empresas de todos os tamanhos e segmentos, proporcionando economia de tempo e esforço na coleta de informações de contato relevantes.
 
-Experimente o CounterSite agora mesmo e descubra como ele pode impulsionar o crescimento do seu negócio!
+Experimente o CounterSite agora mesmo e descubra como ele pode impulsionar o crescimento do seu negócio!!
 </p>
 
 📌 Programa Coutersite
