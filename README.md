@@ -38,7 +38,8 @@ The project was done with C#.
 <img src="print2.png" alt="page-home">
 
 🎬 Video Demo:
-https://youtu.be/xqfR4fPgBVE
+[*Click para ver o video*](https://youtu.be/xqfR4fPgBVE)
+
 
 🔧 Tecnologias utilizadas:
 ------------------
