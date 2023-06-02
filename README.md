@@ -37,6 +37,8 @@ The project was done with C#.
 
 <img src="print2.png" alt="page-home">
 
+https://icons8.com/icon/106753/video Video Demo:
+[*Video Demo da App*](https://youtu.be/xqfR4fPgBVE)
 
 🔧 Tecnologias utilizadas:
 ------------------
