@@ -36,7 +36,7 @@ namespace compilercrusadersteste
         }
 
         //para nao usar ThreadSleep por ser má pratica implementei estas funcoes para esperarem que o elemento exista ou é clickavel
-        public  Func<IWebDriver, IWebElement> ElementIsClickable(IWebElement element)
+        public  static Func<IWebDriver, IWebElement> ElementIsClickable(IWebElement element)
         {
             return driver =>
             {
@@ -46,14 +46,13 @@ namespace compilercrusadersteste
                 }
                 catch (Exception)
                 {
-                    Erro_m(this, EventArgs.Empty);
-
+                   
                     return null;
                 }
             };
         }
 
-        public  Func<IWebDriver, IWebElement> ElementExists(By locator)
+        public  static Func<IWebDriver, IWebElement> ElementExists(By locator)
         {
             return driver =>
             {
@@ -63,129 +62,151 @@ namespace compilercrusadersteste
                 }
                 catch (NoSuchElementException)
                 {
-                    Erro_m(this, EventArgs.Empty);
+                    
                     return null;
                 }
             };
         }
 
 
-
-        public void Pesquisa(string texto)  // recebe string e depois a string é dividida
+        public bool verificar_seleinium()
         {
+            try   // verifica se é possivel iniciar a API
+            {
+                //inicializa o web driver para o chrome
+                new DriverManager().SetUpDriver(new ChromeConfig());
+                IWebDriver driver = new ChromeDriver();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+
+        public  void Pesquisa(string texto)  // recebe string e depois a string é dividida
+        {
+            bool verificacao;
 
             string[] entradas = texto.Split(',');
-
-            //inicializa o web driver para o chrome
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            IWebDriver driver = new ChromeDriver();
-
-            //abre google.com
-            driver.Navigate().GoToUrl("https://www.google.com");
-
-            //maximiza pagina
-            driver.Manage().Window.Maximize();
-
-            //ao abrir o Edge vai abrir uma pagina de cookies. Este excerto serve para aceitar as cookies automaticamente
-            IWebElement cookiesButton = driver.FindElement(By.Id("L2AGLb"));
-            cookiesButton.Click();
-
-            //espera que a pagina abra, vou tirar estes thread sleeps todos 
-            Thread.Sleep(500);
-
-            //Procura a searchbox do google
-
-            IWebElement searchBox = driver.FindElement(By.Name("q"));
-
-            //Insere o input
-            searchBox.SendKeys(entradas[0] + " em " + entradas[1]);
-
-            //Carrega enter
-            searchBox.SendKeys(OpenQA.Selenium.Keys.Enter);
-
-            //espera que a pagina abra
-            Thread.Sleep(2000);
+            verificacao = verificar_seleinium();
 
 
-            //TESTE PARA APENAS UM ELEMENTO. DEPOIS CRIAR UMA ILIST WEBELEMENTS PARA GUARDAR TUDO!! ->
-            //Console.WriteLine("antes do find");
-
-            //declarar js executor
-            //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            //// dar scrool down para o selenium ver os resultados
-            //js.ExecuteScript("window.scrollBy(0,500)");
-
-            //Carrega no botao que mostra todos os negocios
-            IWebElement showAllButton = driver.FindElement(By.ClassName("jRKCUd"));
-            showAllButton.Click();
-            List<IWebElement> elements = driver.FindElements(By.CssSelector(".OSrXXb:not(.WaZi0e)")).ToList();
-
-
-            //ignora os comentarios
-            var elements2 = elements.Where(element => !element.Text.StartsWith("\""));
-
-            List<IWebElement> businessNames = elements.Where(element => !string.IsNullOrEmpty(element.Text)).ToList();
-
-
-            //lista de string endereços
-            List<string> businessAddresses = new List<string>();
-
-            //objeto wait para esperar por certos eventos na pagina
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-
-            //para remover de businessNames os negocios que não conseguimos aceder pelo web scrapping e ambas as listas ficarem c o mesmo count
-            List<int> toRemove = new List<int>();
-
-            //ir buscar as moradas dos respetivos negocios. Não usei foreach pq ao usar foreach poderia dar duas listas businessNames e businessAddress de tamanho diferente
-            //o que nos iria dar problemas
-            for (int i = 0; i < businessNames.Count; i++)
+            if (verificacao)
             {
+                //inicializa o web driver para o chrome
+                new DriverManager().SetUpDriver(new ChromeConfig());
+                IWebDriver driver = new ChromeDriver();
+                //abre google.com
+                driver.Navigate().GoToUrl("https://www.google.com");
 
-                try
+                //maximiza pagina
+                driver.Manage().Window.Maximize();
+
+                //ao abrir o Edge vai abrir uma pagina de cookies. Este excerto serve para aceitar as cookies automaticamente
+                IWebElement cookiesButton = driver.FindElement(By.Id("L2AGLb"));
+                cookiesButton.Click();
+
+                //espera que a pagina abra, vou tirar estes thread sleeps todos 
+                Thread.Sleep(500);
+
+                //Procura a searchbox do google
+
+                IWebElement searchBox = driver.FindElement(By.Name("q"));
+
+                //Insere o input
+                searchBox.SendKeys(entradas[0] + " em " + entradas[1]);
+
+                //Carrega enter
+                searchBox.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+                //espera que a pagina abra
+                Thread.Sleep(2000);
+
+
+                //TESTE PARA APENAS UM ELEMENTO. DEPOIS CRIAR UMA ILIST WEBELEMENTS PARA GUARDAR TUDO!! ->
+                //Console.WriteLine("antes do find");
+
+                //declarar js executor
+                //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+                //// dar scrool down para o selenium ver os resultados
+                //js.ExecuteScript("window.scrollBy(0,500)");
+
+                //Carrega no botao que mostra todos os negocios
+                IWebElement showAllButton = driver.FindElement(By.ClassName("jRKCUd"));
+                showAllButton.Click();
+                List<IWebElement> elements = driver.FindElements(By.CssSelector(".OSrXXb:not(.WaZi0e)")).ToList();
+
+
+                //ignora os comentarios
+                var elements2 = elements.Where(element => !element.Text.StartsWith("\""));
+
+                List<IWebElement> businessNames = elements.Where(element => !string.IsNullOrEmpty(element.Text)).ToList();
+
+
+                //lista de string endereços
+                List<string> businessAddresses = new List<string>();
+
+                //objeto wait para esperar por certos eventos na pagina
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+
+                //para remover de businessNames os negocios que não conseguimos aceder pelo web scrapping e ambas as listas ficarem c o mesmo count
+                List<int> toRemove = new List<int>();
+
+                //ir buscar as moradas dos respetivos negocios. Não usei foreach pq ao usar foreach poderia dar duas listas businessNames e businessAddress de tamanho diferente
+                //o que nos iria dar problemas
+                for (int i = 0; i < businessNames.Count; i++)
                 {
-                    IWebElement name = businessNames[i];
-                    wait.Until(ElementIsClickable(name));
-                    name.Click();
-                    //Este thread sleep serve para deixar o browser atualizar a pagina, senao todos os address serao iguais pois o browser n iria ter tempo de
-                    //abrir a nova pagina no google, não consegui remove-lo e fazer o prog correr como esperado :(
-                    Thread.Sleep(700);
-                    IWebElement address = wait.Until(ElementExists(By.ClassName("LrzXr")));
-                    businessAddresses.Add(address.Text);
+
+                    try
+                    {
+                        IWebElement name = businessNames[i];
+                        wait.Until(ElementIsClickable(name));
+                        name.Click();
+                        //Este thread sleep serve para deixar o browser atualizar a pagina, senao todos os address serao iguais pois o browser n iria ter tempo de
+                        //abrir a nova pagina no google, não consegui remove-lo e fazer o prog correr como esperado :(
+                        Thread.Sleep(700);
+                        IWebElement address = wait.Until(ElementExists(By.ClassName("LrzXr")));
+                        businessAddresses.Add(address.Text);
 
 
 
-                } catch(ElementNotInteractableException) {
-                    toRemove.Add(i);
-                    continue;
+                    }
+                    catch (ElementNotInteractableException)
+                    {
+                        toRemove.Add(i);
+                        continue;
+                    }
+
                 }
 
+                //para debug
+                Console.WriteLine("Count dos names: {0}\n Count dos addresses: {1}", businessNames.Count, businessAddresses.Count);
+
+                //caso o for loop entre no catch, meter as listas do mesmo tamanho
+                for (int i = toRemove.Count - 1; i >= 0; i--)
+                {
+                    businessNames.RemoveAt(toRemove[i]);
+                }
+
+                //out dos resultados, para debug
+                for (int i = 0; i < businessNames.Count; i++)
+                {
+                    Console.WriteLine(businessNames[i].Text);
+                }
+
+                for (int j = 0; j < businessAddresses.Count; j++)
+                {
+                    Console.WriteLine(businessAddresses[j]);
+                }
+
+
+                Pesquisa_Concluida(this, EventArgs.Empty);
             }
 
-            //para debug
-            Console.WriteLine("Count dos names: {0}\n Count dos addresses: {1}", businessNames.Count, businessAddresses.Count);
-
-            //caso o for loop entre no catch, meter as listas do mesmo tamanho
-            for (int i = toRemove.Count - 1; i >= 0; i--)
-            {
-                businessNames.RemoveAt(toRemove[i]);
-            }
-
-            //out dos resultados, para debug
-            for (int i = 0; i < businessNames.Count; i++)
-            {
-                Console.WriteLine(businessNames[i].Text);
-            }
-
-            for(int j = 0; j < businessAddresses.Count; j++)
-            {
-                Console.WriteLine(businessAddresses[j]);  
-            }
-
-
-            Pesquisa_Concluida(this, EventArgs.Empty);
-
-
-
+            Erro_m(this, EventArgs.Empty);
         }
 
         public void GerarFicheiroResultados()  // gerar ficheiro final
