@@ -10,7 +10,7 @@ namespace compilercrusadersteste
 {
     public class View
     {
-        
+        private Model model;
         private Form1 janela;
 
 
