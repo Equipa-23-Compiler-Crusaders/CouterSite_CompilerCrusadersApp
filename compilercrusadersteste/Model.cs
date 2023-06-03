@@ -92,8 +92,7 @@ namespace compilercrusadersteste
             try
             {
                 new DriverManager().SetUpDriver(new ChromeConfig());
-                IWebDriver driver = new ChromeDriver();
-                return true;
+                driver = new ChromeDriver();
             }
             catch (Exception e)
             {
