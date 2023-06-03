@@ -1,10 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Net.NetworkInformation;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -26,10 +26,20 @@ namespace compilercrusadersteste
         public event Model_event Ficheiro_Gerado;
         private View view;
         private string resultados;
-        
+        private List<IWebElement> businessNames;
+        private List<string> businessAddresses;
+
         public Model(View v)
         {
             view = v;
+        }
+
+        public List<IWebElement> GetBusinessNames() {
+            return businessNames;
+        }
+
+        public List<String> GetBusinessAddresses() {
+            return businessAddresses;
         }
 
         //para nao usar ThreadSleep por ser má pratica implementei estas funcoes para esperarem que o elemento exista ou é clickavel
@@ -118,17 +128,19 @@ namespace compilercrusadersteste
             //ignora os comentarios
             var elements2 = elements.Where(element => !element.Text.StartsWith("\""));
 
-            List<IWebElement> businessNames = elements.Where(element => !string.IsNullOrEmpty(element.Text)).ToList();
+            businessNames = elements.Where(element => !string.IsNullOrEmpty(element.Text)).ToList();
 
 
             //lista de string endereços
-            List<string> businessAddresses = new List<string>();
+            //List<string> businessAddresses = new List<string>();
 
             //objeto wait para esperar por certos eventos na pagina
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
             //para remover de businessNames os negocios que não conseguimos aceder pelo web scrapping e ambas as listas ficarem c o mesmo count
             List<int> toRemove = new List<int>();
+
+            businessAddresses = new List<string>();
 
             //ir buscar as moradas dos respetivos negocios. Não usei foreach pq ao usar foreach poderia dar duas listas businessNames e businessAddress de tamanho diferente
             //o que nos iria dar problemas
@@ -155,6 +167,7 @@ namespace compilercrusadersteste
 
             }
 
+
             //para debug
             Console.WriteLine("Count dos names: {0}\n Count dos addresses: {1}", businessNames.Count, businessAddresses.Count);
 
@@ -176,26 +189,46 @@ namespace compilercrusadersteste
             }
 
 
+
             Pesquisa_Concluida(this, EventArgs.Empty);
 
-
+            driver.Quit();
 
         }
 
         public void GerarFicheiroResultados()  // gerar ficheiro final
         {
             Console.WriteLine("Model: A criar um ficheiro ");
-            string header = "Negocio,Morada,Telefone,Email";
-            resultados = "teste,1,2,3";  // remover após implemtação do selenium
+            //string header = "Negocio,Morada,Telefone,Email";
+            //resultados = "teste,1,2,3";  // remover após implemtação do selenium
 
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // guarda na pasta "meus documentos"
+            //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // guarda na pasta "meus documentos"
             
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "output_.csv"), true))
+            //using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "output_.csv"), true))
+            //{
+            //    outputFile.WriteLine(header);
+            //    outputFile.WriteLine(resultados);
+            //}
+
+            if(businessNames.Count != businessAddresses.Count)
             {
-                outputFile.WriteLine(header);
-                outputFile.WriteLine(resultados);
+                throw new ArgumentException("Listas com tamanhos erros. Não pode ser!");
             }
 
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("Nome, Endereço");
+
+            for(int i = 0; i < businessNames.Count;i++)
+            {
+                string businessName = businessNames[i].Text;
+                string businessAddress = businessAddresses[i];
+
+                sb.AppendLine($"{businessName},{businessAddress}");
+            }
+
+            File.WriteAllText("resultados.csv", sb.ToString());
+            Console.WriteLine("Acabei de criar o ficheiro! Está na pasta " + Directory.GetCurrentDirectory());
 
             Ficheiro_Gerado(this, EventArgs.Empty);
 
