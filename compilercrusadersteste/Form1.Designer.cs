@@ -36,7 +36,6 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.bing = new System.Windows.Forms.Button();
             this.google = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContentor = new System.Windows.Forms.Panel();
@@ -128,7 +127,6 @@
             // 
             this.MenuVertical.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.MenuVertical.Controls.Add(this.button1);
-            this.MenuVertical.Controls.Add(this.bing);
             this.MenuVertical.Controls.Add(this.google);
             this.MenuVertical.Controls.Add(this.pictureBox1);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
@@ -144,7 +142,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(38, 344);
+            this.button1.Location = new System.Drawing.Point(38, 294);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 37);
@@ -153,30 +151,16 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // bing
-            // 
-            this.bing.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.bing.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bing.Location = new System.Drawing.Point(38, 266);
-            this.bing.Margin = new System.Windows.Forms.Padding(2);
-            this.bing.Name = "bing";
-            this.bing.Size = new System.Drawing.Size(138, 37);
-            this.bing.TabIndex = 2;
-            this.bing.Text = "Pesquisar no Bing";
-            this.bing.UseVisualStyleBackColor = false;
-            this.bing.Click += new System.EventHandler(this.bing_Click);
-            // 
             // google
             // 
             this.google.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.google.Cursor = System.Windows.Forms.Cursors.Hand;
             this.google.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.google.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.google.Location = new System.Drawing.Point(38, 192);
+            this.google.Location = new System.Drawing.Point(38, 217);
             this.google.Margin = new System.Windows.Forms.Padding(2);
             this.google.Name = "google";
-            this.google.Size = new System.Drawing.Size(138, 37);
+            this.google.Size = new System.Drawing.Size(138, 46);
             this.google.TabIndex = 1;
             this.google.Text = "Pesquisar no Google";
             this.google.UseVisualStyleBackColor = false;
@@ -249,7 +233,7 @@
             this.LugarPesquisa.Location = new System.Drawing.Point(38, 277);
             this.LugarPesquisa.Margin = new System.Windows.Forms.Padding(2);
             this.LugarPesquisa.Name = "LugarPesquisa";
-            this.LugarPesquisa.Size = new System.Drawing.Size(169, 36);
+            this.LugarPesquisa.Size = new System.Drawing.Size(169, 52);
             this.LugarPesquisa.TabIndex = 5;
             // 
             // TipoPesquisa
@@ -265,7 +249,7 @@
             this.TipoPesquisa.Location = new System.Drawing.Point(38, 87);
             this.TipoPesquisa.Margin = new System.Windows.Forms.Padding(2);
             this.TipoPesquisa.Name = "TipoPesquisa";
-            this.TipoPesquisa.Size = new System.Drawing.Size(169, 36);
+            this.TipoPesquisa.Size = new System.Drawing.Size(169, 68);
             this.TipoPesquisa.TabIndex = 4;
             this.TipoPesquisa.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
@@ -351,7 +335,6 @@
         private System.Windows.Forms.Panel panelContentor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button google;
-        private System.Windows.Forms.Button bing;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label TituloLocalizar;
