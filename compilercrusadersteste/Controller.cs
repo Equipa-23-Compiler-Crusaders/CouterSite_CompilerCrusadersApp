@@ -10,10 +10,16 @@ namespace compilercrusadersteste
 {
     class Controller
     {
+
+
         Model model;
         View view;
 
-        
+        public delegate void Controller_event(object sender, EventArgs e);
+        public event Controller_event Iniciar_pesquisa;
+        public event Controller_event Execucao_concluida;
+        public event Controller_event Gerar_Ficheiro;
+       
 
         public Controller()
         {
@@ -22,8 +28,11 @@ namespace compilercrusadersteste
 
             view.BotãoPressionado += CliqueEmPesquisar;
             model.Pesquisa_Concluida += GerarResultados;
-            model.Ficheiro_Gerado += MensagemFinal;
-            
+            model.Ficheiro_Gerado += FicheiroGerado;
+            this.Execucao_concluida += view.Mensagem_Final;
+            this.Iniciar_pesquisa += model.Iniciar;
+            this.Gerar_Ficheiro += model.Gerar_ficheiro;
+
         }
         public void IniciarPrograma()
         {
@@ -32,10 +41,11 @@ namespace compilercrusadersteste
 
         public void CliqueEmPesquisar(object origem, EventArgs e)   //subscriver
         {
-            string texto;
+            
             Console.WriteLine("Controller S: model começa a pesquisa");
-            texto = view.Texto();
-            model.Pesquisa(texto);  
+
+            //model.Pesquisa(texto);  
+            Iniciar_pesquisa(this, EventArgs.Empty);
 
         }
      
@@ -43,15 +53,17 @@ namespace compilercrusadersteste
         {
             Console.WriteLine("Model P : pesquisa concluida");
             Console.WriteLine("Controller S: model cria o ficheiro ");
-            model.GerarFicheiroResultados();
-
+            // model.GerarFicheiroResultados();
+            Gerar_Ficheiro(this, EventArgs.Empty);
         }
 
-        public void MensagemFinal(object origem, EventArgs e) //subscriver
+        public void FicheiroGerado(object origem, EventArgs e) //subscriver
         {
             Console.WriteLine("Model P: acabei o ficheiro");
             Console.WriteLine("Contoller S: View informa o utilizador");
-            view.MensagemParaUtilizador("Pesquisa concluida, consulte o ficheiro.");
+            // view.MensagemParaUtilizador("Pesquisa concluida, consulte o ficheiro.");
+            Execucao_concluida(this, EventArgs.Empty);
+
         }
 
 

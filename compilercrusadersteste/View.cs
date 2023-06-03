@@ -39,6 +39,11 @@ namespace compilercrusadersteste
 
         }
 
+        public void Mensagem_Final(object origem, EventArgs e) // subscriver 
+        {
+            MensagemParaUtilizador("Pesquisa concluida, consulte o ficheiro.");
+
+        }
         public void CliqueEmPesquisar(object origem, EventArgs e) // subscriver 
         {
 
@@ -52,8 +57,8 @@ namespace compilercrusadersteste
             return janela.get_text();
         }
 
-        public void MensagemParaUtilizador(string mensagem)  // subscriver do controller para mostar mensagem  ao utilizador
-        {
+        public void MensagemParaUtilizador(string mensagem)
+        { 
             //Console.WriteLine("View:" );
             janela.change_label(mensagem);
              

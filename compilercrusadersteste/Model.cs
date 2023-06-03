@@ -26,6 +26,7 @@ namespace compilercrusadersteste
         public event Model_event Ficheiro_Gerado;
         private View view;
         private string resultados;
+        
         public Model(View v)
         {
             view = v;
@@ -170,8 +171,20 @@ namespace compilercrusadersteste
         }
 
 
+        public void Iniciar(object origem, EventArgs e) // subscriver 
+        {
+            string texto = view.Texto();
+            Pesquisa(texto);
 
-       
+        }
+
+        public void Gerar_ficheiro(object origem, EventArgs e) // subscriver 
+        {
+            GerarFicheiroResultados();
+
+        }
+
+
         // evento ficheiro gerado
     }
 }
