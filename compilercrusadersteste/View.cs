@@ -65,5 +65,10 @@ namespace compilercrusadersteste
            
         }
 
+        public void Informar_utilizador(object origem, EventArgs e)
+        {
+
+            MensagemParaUtilizador("Problema com driver da API Selenium. Verifique instalação: Chrome.");
+        }
     }
 }
