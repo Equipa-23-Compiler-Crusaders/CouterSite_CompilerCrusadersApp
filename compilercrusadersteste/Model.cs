@@ -99,6 +99,9 @@ namespace compilercrusadersteste
             {
                 // Log the exception or rethrow it
                 Console.WriteLine($"Erro ao criar o WebDriver: {e.Message}");
+
+                Erro_m(this, EventArgs.Empty);
+
                 throw; // Parar a execução do programa
             }
 
@@ -207,7 +210,7 @@ namespace compilercrusadersteste
 
             driver.Quit();
 
-            Erro_m(this, EventArgs.Empty);
+            
         }
 
         public void GerarFicheiroResultados()  // gerar ficheiro final
