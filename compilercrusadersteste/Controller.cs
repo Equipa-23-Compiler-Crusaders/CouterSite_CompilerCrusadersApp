@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace compilercrusadersteste
 {
-    class Controller
+    class Controller : IControladorPesquisa
     {
 
 
