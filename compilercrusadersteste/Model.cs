@@ -243,7 +243,7 @@ namespace compilercrusadersteste
                 sb.AppendLine($"{businessName},{businessAddress}");
             }
 
-            File.WriteAllText("resultados.csv", sb.ToString());
+            File.WriteAllText("resultados.csv", sb.ToString(), Encoding.Default);
             Console.WriteLine("Acabei de criar o ficheiro! Está na pasta " + Directory.GetCurrentDirectory());
 
             Ficheiro_Gerado(this, EventArgs.Empty);
