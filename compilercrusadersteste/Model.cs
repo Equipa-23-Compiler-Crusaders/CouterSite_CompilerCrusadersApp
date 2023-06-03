@@ -15,6 +15,7 @@ using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Interactions;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace compilercrusadersteste
 {
@@ -24,6 +25,8 @@ namespace compilercrusadersteste
         public delegate void Model_event(object sender, EventArgs e);
         public event Model_event Pesquisa_Concluida;
         public event Model_event Ficheiro_Gerado;
+        public event Model_event Erro_m;
+
         private View view;
         private string resultados;
         
@@ -33,7 +36,7 @@ namespace compilercrusadersteste
         }
 
         //para nao usar ThreadSleep por ser má pratica implementei estas funcoes para esperarem que o elemento exista ou é clickavel
-        public static Func<IWebDriver, IWebElement> ElementIsClickable(IWebElement element)
+        public  Func<IWebDriver, IWebElement> ElementIsClickable(IWebElement element)
         {
             return driver =>
             {
@@ -43,12 +46,14 @@ namespace compilercrusadersteste
                 }
                 catch (Exception)
                 {
+                    Erro_m(this, EventArgs.Empty);
+
                     return null;
                 }
             };
         }
 
-        public static Func<IWebDriver, IWebElement> ElementExists(By locator)
+        public  Func<IWebDriver, IWebElement> ElementExists(By locator)
         {
             return driver =>
             {
@@ -58,6 +63,7 @@ namespace compilercrusadersteste
                 }
                 catch (NoSuchElementException)
                 {
+                    Erro_m(this, EventArgs.Empty);
                     return null;
                 }
             };

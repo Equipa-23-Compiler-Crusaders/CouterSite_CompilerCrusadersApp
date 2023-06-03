@@ -19,6 +19,7 @@ namespace compilercrusadersteste
         public event Controller_event Iniciar_pesquisa;
         public event Controller_event Execucao_concluida;
         public event Controller_event Gerar_Ficheiro;
+        public event Controller_event Aviso_Erro;
        
 
         public Controller()
@@ -32,6 +33,8 @@ namespace compilercrusadersteste
             this.Execucao_concluida += view.Mensagem_Final;
             this.Iniciar_pesquisa += model.Iniciar;
             this.Gerar_Ficheiro += model.Gerar_ficheiro;
+            this.Aviso_Erro += view.Informar_utilizador;
+            model.Erro_m += Erros;
 
         }
         public void IniciarPrograma()
@@ -63,6 +66,12 @@ namespace compilercrusadersteste
             Console.WriteLine("Contoller S: View informa o utilizador");
             // view.MensagemParaUtilizador("Pesquisa concluida, consulte o ficheiro.");
             Execucao_concluida(this, EventArgs.Empty);
+
+        }
+
+        public void Erros(object origem, EventArgs e) { 
+        
+            Aviso_Erro(this,EventArgs.Empty);
 
         }
 
