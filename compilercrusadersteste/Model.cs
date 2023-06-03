@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -245,6 +246,14 @@ namespace compilercrusadersteste
 
             File.WriteAllText("resultados.csv", sb.ToString(), Encoding.Default);
             Console.WriteLine("Acabei de criar o ficheiro! Está na pasta " + Directory.GetCurrentDirectory());
+
+            try
+            {
+                Process.Start("resultados.csv");
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Nao foi possivel abrir o ficheiro: {ex.Message}");
+            }
 
             Ficheiro_Gerado(this, EventArgs.Empty);
 
