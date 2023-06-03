@@ -86,6 +86,7 @@ namespace compilercrusadersteste
                 //inicializa o web driver para o chrome
                 new DriverManager().SetUpDriver(new ChromeConfig());
                 IWebDriver driver = new ChromeDriver();
+                driver.Close();
                 return true;
             }
             catch (Exception)
