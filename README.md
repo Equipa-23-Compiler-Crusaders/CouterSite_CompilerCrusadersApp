@@ -13,6 +13,8 @@ O CounterSite é um aplicativo desenvolvido em linguagem C# que realiza pesquisa
 
 O aplicativo é muito fácil de usar: basta inserir os termos de pesquisa desejados e o CounterSite cuidará do resto. Além disso, o programa permite criar um arquivo para armazenar as informações coletadas, que podem ser utilizadas como uma base de dados para futuros contatos.
 
+No entanto, é importante lembrar que o uso desta técnica deve ser sempre ético e legal. Cada página web tem os seus próprios termos de uso que devem ser respeitados, e a recolha e uso de dados também estão sujeitos à legislação local e internacional de proteção de dados.
+
 O CounterSite é ideal para empresas de todos os tamanhos e segmentos, proporcionando economia de tempo e esforço na coleta de informações de contato relevantes.
 
 Experimente o CounterSite agora mesmo e descubra como ele pode impulsionar o crescimento do seu negócio!!
